@@ -1,0 +1,65 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.screen {
+    border: 2px solid black;
+    border-bottom: 1px;
+    padding: 0px 3rem;
+    font-size: 50.5px;
+}
+
+
+.operators-con {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+[class="0 button"] {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+[class="equals button"] {
+    grid-column-start: 4;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    display: flex;
+    align-items: center;
+}
+
+[class="clear button"] {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+[class="multiply button"] {
+    grid-column-start: 4;
+    grid-row-start: 3;
+}
+
+[class="divide button"] {
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+.button {
+    border: 2px solid black;;
+    padding: 1rem;
+}
+
+div, .operators:nth-child(n+14) {
+    margin: -1px;
+}
