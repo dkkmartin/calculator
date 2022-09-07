@@ -2,6 +2,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 40px;
     font-weight: 700;
+    margin: 2px;
 }
 
 body {
@@ -9,23 +10,38 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex: 1 0 ;
     
 }
 
 .screen {
     border: 2px solid black;
-    border-bottom: 1px;
-    padding: 0px 3rem;
     font-size: 50.5px;
+    background-color: rgb(123, 123, 123);
+    color: orange;
+    display: flex;
+    height: 100px;
+    width: 400px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
+.screen-con {
+    display: flex;
+}
 
 .operators-con {
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
 
-[class="0 button"] {
+.button {
+    background-color: rgb(123, 123, 123);
+    color: orange;
+    padding: 35px;
+}
+
+[class="zero button"] {
     grid-column-start: 1;
     grid-column-end: 4;
     text-align: center;
@@ -55,11 +71,5 @@ body {
     grid-row-start: 2;
 }
 
-.button {
-    border: 2px solid black;;
-    padding: 1rem;
-}
 
-div, .operators:nth-child(n+14) {
-    margin: -1px;
-}
+
