@@ -1,6 +1,10 @@
 let userInputNumbers = [];
-const elements = document.querySelectorAll('.operators-con');
+let userFirstNumbers = 0;
+let userSecondNumbers = 0;
+let operatorSelection;
 
+
+const elements = document.querySelectorAll('.operators-con');
 
 let screen = document.querySelector('.screen');
 let equalsBtn = document.querySelector('.equals');
@@ -20,6 +24,12 @@ let eightBtn = document.querySelector('.eight');
 let nineBtn = document.querySelector('.nine');
 let zeroBtn = document.querySelector('.zero');
 
+/* elements.forEach(element => {
+    element.addEventListener('click', function() {
+        inner = element.innerHTML;
+        btnToInt(inner)
+    });
+}) */
 
 
 zeroBtn.addEventListener('click', function(){
@@ -63,41 +73,41 @@ oneBtn.addEventListener('click', function(){
     btnToInt(inner)
 })
 divideBtn.addEventListener('click', function(){
-    divideBtn = divideBtn.innerHTML;
-    btnToInt(divideBtn)
+    userFirstNumbers = userInputNumbers;
+    userInputNumbers = [];
+    operatorSelection = divide;
 })
 multiplyBtn.addEventListener('click', function(){
-    multiplyBtn = multiplyBtn.innerHTML;
-    btnToInt(multiplyBtn)
+    userFirstNumbers = userInputNumbers;
+    userInputNumbers = [];
+    operatorSelection = multiply;
 })
 subtractBtn.addEventListener('click', function(){
-    subtractBtn = subtractBtn.innerHTML;
-    btnToInt(subtractBtn)
+    userFirstNumbers = userInputNumbers;
+    userInputNumbers = [];
+    operatorSelection = subtract;
 })
 addBtn.addEventListener('click', function(){
-    addBtn = addBtn.innerHTML;
-    btnToInt(addBtn)
+    userFirstNumbers = userInputNumbers;
+    userInputNumbers = [];
+    operatorSelection = add;
 })
 clearBtn.addEventListener('click', function(){
-    screen.innerHTML = '';
-    userInputNumbers = []
+    screen.innerHTML = '0';
+    userInputNumbers = [];
+    userFirstNumbers = 0;
+    userSecondNumbers = 0;
 })
 equalsBtn.addEventListener('click', function(){
-    equalsBtn = equalsBtn.innerHTML;
-    btnToInt(equalsBtn)
+    operatorSelection(+userFirstNumbers.join(''), +userInputNumbers.join(''))
 })
 
-
-
-/* elements.forEach(element => {
-    element.addEventListener('click', function() {
-        inner = element.innerHTML;
-        btnToInt(inner)
-    });
-}) */
+function resultToScreen(result) {
+    screen.innerHTML = result.toString();
+}
 
 function btnToScreen(btn) {
-    userInputNumbers.push(btn)
+    userInputNumbers.push(btn);
     screen.innerHTML = `${userInputNumbers.join('')}`;
 }
 
@@ -108,22 +118,21 @@ function btnToInt(button) {
 }
 
 function add(a, b) {
-    return a + b;
+    return resultToScreen(a + b)
 }
 
 function subtract(a, b) {
-    return a - b;
+    return resultToScreen(a - b);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return resultToScreen(a * b);
 }
 
 function divide(a, b) {
-    return a / b;
+    return resultToScreen(a / b);
 }
 
 function operate(operator, a, b) {
     return operator(a, b);
 }
-

@@ -41,6 +41,15 @@ body {
     padding: 35px;
 }
 
+.subtract,
+.divide,
+.add,
+.multiply,
+.clear,
+.equals {
+    color: black
+}
+
 [class="zero button"] {
     grid-column-start: 1;
     grid-column-end: 4;
@@ -71,5 +80,11 @@ body {
     grid-row-start: 2;
 }
 
-
-
+@media only screen and (max-width: 400px) {
+    .button {
+        padding: 25px;
+    }
+    .screen {
+        width: 321px;
+    }
+}
