@@ -1,7 +1,6 @@
 let userInputNumbers = [];
-let userFirstNumbers = 0;
-let userSecondNumbers = 0;
-let operatorSelection;
+let userFirstNumbers, operatorSelection;
+
 
 
 const elements = document.querySelectorAll('.operators-con');
@@ -96,10 +95,10 @@ clearBtn.addEventListener('click', function(){
     screen.innerHTML = '0';
     userInputNumbers = [];
     userFirstNumbers = 0;
-    userSecondNumbers = 0;
 })
 equalsBtn.addEventListener('click', function(){
-    operatorSelection(+userFirstNumbers.join(''), +userInputNumbers.join(''))
+    operate(operatorSelection, +userFirstNumbers.join(''), +userInputNumbers.join(''))
+    userInputNumbers = [];
 })
 
 function resultToScreen(result) {
@@ -134,5 +133,11 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
+    if (operator === divide && a === 0) {
+        return resultToScreen('no');
+    }
+    if (operator === divide && b === b) {
+        return resultToScreen('no')
+    }
     return operator(a, b);
 }
